@@ -1,0 +1,12 @@
+cassandra-driver
+kafka-python
+keras
+matplotlib
+numpy
+pandas
+pyspark
+scikit-learn
+scipy
+seaborn
+sklearn
+tensorflow

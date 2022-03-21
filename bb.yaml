@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: magda-ds-onboarding
+  namespace: fw-prod
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      bb: magda-ds-onboarding
+  template:
+    metadata:
+      labels:
+        bb: magda-ds-onboarding
+    spec:
+      containers:
+      - name: magda-ds-onboarding
+        image: flowworks-carlsolutions.azurecr.io/flowworks/magda-ds-onboarding:93242141906d1283fe42ef4490bea6c800680b3b
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 80
+      imagePullSecrets:
+        - name: regsecret
