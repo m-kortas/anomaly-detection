@@ -1,7 +1,5 @@
 
-# Data Science onboarding project
-
-Time Series Anomaly Detection Models
+# Time Series Anomaly Detection Models
 
 Machine Learning models detect anomalies on data a site and channales from FlowWorks.
 
