@@ -1,16 +1,7 @@
 
 # Data Science onboarding project
 
-1. Cassandra-Kafka-Kubernetes flow
-
-The script gets data from a channel in Cassandra and writes received data to csv file.
-
-App for connecting with Kafka creates new topic on test Kafka and sends data 
-from Cassandra to topic on Kafka and listens to topic for data that are being sent.
-
-An image of the app is deployed on test Kubernetes.
-
-2. Time Series Anomaly Detection Models
+Time Series Anomaly Detection Models
 
 Machine Learning models detect anomalies on data a site and channales from FlowWorks.
 
