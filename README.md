@@ -1,11 +1,9 @@
 
 # Time Series Anomaly Detection Models
 
-Machine Learning models detect anomalies on data a site and channales from FlowWorks.
+Machine Learning models to detect anomalies on time series data.
 
 The models are deep learning classification models (deep neural networks) built on Bidirectional LSTM, LSTM and Fully Convolutional Neural Network.
-
-For the training and testing were used data from different sites ('NE001CALa_17_data', 'NE003CAL_17_data', 'NE004CAL_17_data', 'NE006a_10_data', 'NE008_data', 'NE009_10_data', 'NE010_10_data', 'NE011_10_data', 'NE012_11_data', 'NE016_10_data', 'NE017_10_data').
        
 ## Models
 
