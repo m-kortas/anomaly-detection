@@ -82,20 +82,6 @@ https://www.ntt-review.jp/archive/ntttechnical.php?contents=ntr201708fa5.html
 - scikit-learn
 - tensorflow
 
-
-## Run Locally
-
-Clone the project
-
-```bash
-  git clone https://github.com/carldata/magda-ds-onboarding.git
-```
-
-Go to the project directory
-
-```bash
-  cd anomaly_detection
-```
 ## Installation
 
 Install tensorflow with conda (Python 3.7)
