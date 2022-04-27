@@ -14,7 +14,6 @@ This way we reduce amount of data (5 times) and balance the dataset
 
 We can ajust all parameters (including T time and STEP). 
 
-Features used: velocity, hour, minute, day, month, flow, level
 1. Bidirectional LSTM v1 
 
 First model - LSTMv1
@@ -44,36 +43,6 @@ precede a word in a sentence).
 
 2. LSTM v2 
 
-
-## Lessons Learned
-
-- The data is very unbalanced (very few anomalies - True Positives)
-- Supervised models work generally better than unsupervised (checked Isolation Tree, KMeans)
-- Issues with tensorflow instalation on Kubernetes (TO DO)
-- LSTM perform much better than Fully Convolutional Neural Networks on this specific task
-
-## Roadmap
-
-- Article on various ML methods for anomaly detection
-https://neptune.ai/blog/anomaly-detection-in-time-series
-
-
-- Trying LSTM autoencoders 
-https://towardsdatascience.com/lstm-autoencoder-for-extreme-rare-event-classification-in-keras-ce209a224cfb
-
-
-- Image-based anomaly detection
-
-Transforming channel signals into spectrograms and feeding it as an image to Convolutional Neural Network.
-We could train model on all sites and channels at once (more data) and create spectrograms for each day/hour (depending on business requirements.)
-
-We could also plot geolocation on a country's topography map - to retrieve geospacial information and correlations between sites as well as climate information. 
-
-Inspiration: 
-
-https://towardsdatascience.com/sound-based-bird-classification-965d0ecacb2b
-
-https://www.ntt-review.jp/archive/ntttechnical.php?contents=ntr201708fa5.html
 
 ## Tech Stack
 
