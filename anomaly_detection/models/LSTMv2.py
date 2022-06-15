@@ -1,6 +1,6 @@
 """ LSTM Model Architecture """
 
-#!/usr/bin/env python
+# !/usr/bin/env python
 # coding: utf-8
 from time import time
 
@@ -14,7 +14,6 @@ from tensorflow.keras.regularizers import l2
 EPOCHS = 20
 RANDOM_SEED = 42
 CLASS_WEIGHT = {0: 1, 1: 3}
-
 
 np.random.seed(RANDOM_SEED)
 random.set_seed(RANDOM_SEED)

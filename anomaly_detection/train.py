@@ -1,16 +1,15 @@
 """Training file for neural nets"""
 
-#!/usr/bin/env python
-# coding: utf-8
-from models import Conv, LSTMv1, LSTMv2, LSTMv3
-from tensorflow import random
 import numpy as np
 import tensorflow as tf
+from tensorflow import random
 
 import utils
+# !/usr/bin/env python
+# coding: utf-8
+from models import Conv
 
 tf.config.list_physical_devices()
-
 
 RANDOM_SEED = 42
 PATH = "data/processed/processed_NE016_10_data.csv"

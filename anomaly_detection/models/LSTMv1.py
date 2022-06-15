@@ -1,6 +1,6 @@
 """ LSTM Model Architecture """
 
-#!/usr/bin/env python
+# !/usr/bin/env python
 # coding: utf-8
 from time import time
 

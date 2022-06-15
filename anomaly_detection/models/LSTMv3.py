@@ -1,5 +1,5 @@
 """ LSTM Model Architecture """
-#!/usr/bin/env python
+# !/usr/bin/env python
 # coding: utf-8
 from time import time
 
@@ -12,7 +12,6 @@ from tensorflow.keras.models import Sequential
 EPOCHS = 20
 RANDOM_SEED = 42
 CLASS_WEIGHT = {0: 1, 1: 2}
-
 
 np.random.seed(RANDOM_SEED)
 random.set_seed(RANDOM_SEED)
@@ -54,7 +53,6 @@ def create_train_model(X_train, y_train, X_val, y_val):
     print(f"Training was completed in {time() - start:.2f} secs")
     print(model.summary())
     return history, model
-
 
 # Prediction binary_accuracy (mapped) = 93.96089561652475%
 # Prediction F-score (mapped) = 0.702485758674262

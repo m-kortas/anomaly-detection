@@ -1,9 +1,8 @@
 """Utils for anomaly detection and time series analysis"""
 
-#!/usr/bin/env python
+# !/usr/bin/env python
 # coding: utf-8
 
-import random
 from datetime import timedelta
 from os import walk
 from pickle import dump, load
@@ -234,7 +233,7 @@ def prepare_dataset(test, train=None, val=None, training=True):
         scaler = load(open(SCALER_PATH, "rb"))
         test.loc[:, FEATURE_LIST] = scaler.transform(
             test[FEATURE_LIST].to_numpy())
-        X_test = append_history(X=test[FEATURE_LIST], targets=None)
+        X_test = append_history(X=test[FEATURE_LIST], targets=False)
         print(f"Test data dimensions: {X_test.shape}")
         return X_test
 
@@ -350,7 +349,7 @@ def plot_cm(y_true, y_pred, class_names):
 def show_metrics(y_pred, y_test):
     """ Default metric calculation """
     score = sum(y_pred == y_test) / len(y_test)
-    print(f"Prediction binary_accuracy (mapped) = {float(score)*100}%")
+    print(f"Prediction binary_accuracy (mapped) = {float(score) * 100}%")
     F1 = f1_score(y_test, y_pred)
     print(f"Prediction F-score (mapped) = {F1}")
     plot_cm(y_test, y_pred, ["normal", "anomaly"])
@@ -371,7 +370,7 @@ def add_anomalies_pred(row):
 
 def plot_signal_hat(Y_test, Y_hat):
     """ Plot signals """
-    fig = plt.figure()
+    plt.figure()
     plt.plot(Y_hat)
     plt.plot(Y_test)
     plt.legend(["target", "prediction"])
@@ -447,7 +446,7 @@ def plot_sample(df, feature, baseline, date1, date2, pred_col=None):
     a = data.loc[data[pred_col] == 1, ["date", feature]]
     b = data.loc[data[baseline] == 1, ["date", feature]]
     c = data.loc[(data[baseline] == 1) & (
-        data[pred_col] == 1), ["date", feature]]
+            data[pred_col] == 1), ["date", feature]]
 
     ax.scatter(
         pd.to_datetime(data["date"]), data[feature], color="black", label="Normal", s=20

@@ -1,6 +1,6 @@
 """ Conv Model Architecture """
 
-#!/usr/bin/env python
+# !/usr/bin/env python
 # coding: utf-8
 
 from time import time
@@ -54,7 +54,7 @@ def create_train_model(X_train, y_train, X_val, y_val):
 
     model = make_model(input_shape=(X_train.shape[1], X_train.shape[2]))
 
-   # model.load_weights(checkpoint_path)
+    # model.load_weights(checkpoint_path)
 
     model.compile(loss="binary_crossentropy",
                   metrics=metrics, optimizer="adam")

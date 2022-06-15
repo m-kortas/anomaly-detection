@@ -1,48 +1,47 @@
-
 # Time Series Anomaly Detection Models
 
 Machine Learning models to detect anomalies on time series data.
 
-The models are deep learning classification models (deep neural networks) built on Bidirectional LSTM, LSTM and Fully Convolutional Neural Network.
-       
+The models are deep learning classification models (deep neural networks) built on Bidirectional LSTM, LSTM and Fully
+Convolutional Neural Network.
+
 ## Models
 
 For the training, the data were merged into 5-hours-long chunks (5 minutes x (T = 60)).
-If a chunk had an anomaly then whole chunk was labeled as anomaly. 
-This way we reduce amount of data (5 times) and balance the dataset 
+If a chunk had an anomaly then whole chunk was labeled as anomaly.
+This way we reduce amount of data (5 times) and balance the dataset
 (since classed are very unbalanced - small amount of anomalies).
 
-We can ajust all parameters (including T time and STEP). 
+We can ajust all parameters (including T time and STEP).
 
-1. Bidirectional LSTM v1 
+1. Bidirectional LSTM v1
 
 First model - LSTMv1
 Long short-term memory (LSTM) is an artificial recurrent neural network (RNN)
-architecture. Unlike standard feedforward neural networks, LSTM has 
-feedback connections. It can process not only single data points 
+architecture. Unlike standard feedforward neural networks, LSTM has
+feedback connections. It can process not only single data points
 (such as images), but also entire sequences of data.
 
-A common LSTM unit is composed of a cell, an input gate, an output gate 
-and a forget gate. The cell remembers values over arbitrary time intervals 
+A common LSTM unit is composed of a cell, an input gate, an output gate
+and a forget gate. The cell remembers values over arbitrary time intervals
 and the three gates regulate the flow of information into and out of the cell.
 
-LSTM networks are well-suited to classifying, processing and making 
-predictions based on time series data, since there can be lags of 
-unknown duration between important events in a time series. LSTMs were 
-developed to deal with the vanishing gradient problem that can be encountered 
-when training traditional RNNs. Relative insensitivity to gap length is an 
-advantage of LSTM over RNNs, hidden Markov models and other sequence learning 
+LSTM networks are well-suited to classifying, processing and making
+predictions based on time series data, since there can be lags of
+unknown duration between important events in a time series. LSTMs were
+developed to deal with the vanishing gradient problem that can be encountered
+when training traditional RNNs. Relative insensitivity to gap length is an
+advantage of LSTM over RNNs, hidden Markov models and other sequence learning
 methods in numerous applications.
 
-A Bidirectional LSTM, or biLSTM, is a sequence processing model that 
-consists of two LSTMs: one taking the input in a forward direction, 
-and the other in a backwards direction. BiLSTMs effectively increase 
-the amount of information available to the network, improving the context 
+A Bidirectional LSTM, or biLSTM, is a sequence processing model that
+consists of two LSTMs: one taking the input in a forward direction,
+and the other in a backwards direction. BiLSTMs effectively increase
+the amount of information available to the network, improving the context
 available to the algorithm (e.g. knowing what words immediately follow and
 precede a word in a sentence).
 
-2. LSTM v2 
-
+2. LSTM v2
 
 ## Tech Stack
 
@@ -62,11 +61,12 @@ Install tensorflow with conda (Python 3.7)
     python -m ipykernel install --user --name=tf2
 ```
 
-Install all the packages with pip 
+Install all the packages with pip
 
 ```bash
     pip install -r requirements.txt
 ```
+
 ## Usage/Examples
 
 ```python
@@ -74,15 +74,15 @@ Install all the packages with pip
 import utils
 import LSTMv1
 
-df_train, df_val, df_test = utils.read_split_data(PATH)   #split data for training and prepare dataset
-raw_data = df_test.copy()[utils.T :].reset_index(drop=True)  
+df_train, df_val, df_test = utils.read_split_data(PATH)  # split data for training and prepare dataset
+raw_data = df_test.copy()[utils.T:].reset_index(drop=True)
 X_train, y_train, X_test, y_test, X_val, y_val = utils.prepare_dataset(
-     df_test, df_train, df_val
+    df_test, df_train, df_val
 )
 
-history, model = LSTMv1.create_train_model(X_train, y_train, X_val, y_val)  #train model 
+history, model = LSTMv1.create_train_model(X_train, y_train, X_val, y_val)  # train model 
 
-utils.evaluate_training(history)    #evaluate training
+utils.evaluate_training(history)  # evaluate training
 utils.show_results(model, X_test, raw_data)
 
 ```
@@ -94,13 +94,13 @@ import utils
 from tensorflow.keras import models
 
 df = utils.prepare_raw_data(PATH)  #prepare dataset (raw velocity data)
-raw_data = df.copy()[utils.T :].reset_index(drop=True)  
+raw_data = df.copy()[utils.T:].reset_index(drop=True)
 X_test = utils.prepare_dataset(df, training=False)
 
 model = models.load_model(MODEL_PATH, compile=False)  #load model 
 model.compile(loss="binary_crossentropy", metrics=utils.METRICS, optimizer="adam")
 
-result = utils.show_results(model, X_test, raw_data) #show results
+result = utils.show_results(model, X_test, raw_data)  #show results
 raw_data["pred"] = result
 
 utils.show_random_results(raw_data, "velocity", SITE, compare=False)
@@ -109,12 +109,11 @@ utils.show_random_results(raw_data, "velocity", SITE, compare=False)
 
 ## Feedback
 
-If you have any feedback, please reach out to me :) 
+If you have any feedback, please reach out to me :)
 
 ## Contributing
 
 Contributions are always welcome!
-
 
 ## Authors
 

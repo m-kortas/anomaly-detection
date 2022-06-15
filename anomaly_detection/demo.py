@@ -1,5 +1,5 @@
 """ Pump maintanence demo results """
-#!/usr/bin/env python
+# !/usr/bin/env python
 # coding: utf-8
 
 from pickle import load
@@ -44,7 +44,6 @@ utils.plot_signal_hat(yhat2, Y)
 
 df["pred_temp"] = yhat2
 utils.show_metrics(df["pred_temp"], df["targets"])
-
 
 df_abi = utils.prepare_raw_data(path, date1="2021-11-26", date2="2021-11-29")
 abi_X = df_abi[utils.FEATURE_LIST].fillna(0)
